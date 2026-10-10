@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công ty TNHH Cơ Điện Lạnh Ngọc Diệp - Nghệ An</title>
+    <meta name="description" content="Công ty TNHH Cơ Điện Lạnh Ngọc Diệp tại Xóm Xuân Trang, đường An Thuyên, Phường Vinh Phú, TP. Vinh, Nghệ An - MST: 2902220381">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0b5ed7;
+            --secondary: #fd7e14;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0,0,0,.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        body { color: var(--dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 500; transition: all .3s; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: #0a4cad; transform: translateY(-2px); }
+        .btn-secondary { background: var(--secondary); color: #fff; }
+        .btn-secondary:hover { background: #e67010; transform: translateY(-2px); }
+        .section-title { font-size: 2rem; text-align: center; margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 3px; background: var(--secondary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Header */
+        header { background: #fff; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 999; }
+        .nav-wrap { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); line-height: 1.3; }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        nav a { font-weight: 500; color: var(--dark); }
+        nav a:hover { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { background: linear-gradient(rgba(11,94,215,.85), rgba(8,70,160,.9)), url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200') center/cover; color: #fff; padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; max-width: 750px; margin: 0 auto 2rem; opacity: .95; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* About */
+        .about { padding: 80px 0; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; }
+        .info-box { background: #f0f6ff; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; }
+        .values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .value-item { padding: 1rem; background: var(--light); border-radius: 8px; }
+        .value-item i { color: var(--secondary); margin-right: .5rem; }
+
+        /* Services */
+        .services { background: var(--light); padding: 80px 0; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .service-card { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); transition: transform .3s; }
+        .service-card:hover { transform: translateY(-8px); }
+        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* Why Us */
+        .why-us { padding: 80px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .feature-item { text-align: center; }
+        .feature-item i { font-size: 2rem; color: var(--secondary); margin-bottom: 1rem; }
+
+        /* Projects */
+        .projects { background: var(--light); padding: 80px 0; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+        .project-img { height: 180px; background: linear-gradient(135deg, var(--primary), #0a4cad); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff; }
+        .project-body { padding: 1.5rem; }
+
+        /* Contact */
+        .contact { padding: 80px 0; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+        .contact-info div { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px; }
+        .contact-info i { color: var(--primary); min-width: 20px; margin-top: 3px; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.3rem; font-weight: 500; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        textarea { min-height: 120px; resize: vertical; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #fff; padding: 40px 0 20px; }
+        .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.1); }
+        .footer-links { margin: 1rem 0; }
+        .footer-links a { margin: 0 0.5rem; color: #87ceeb; }
+        .footer-links a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            nav ul { position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 1rem; gap: 1rem; display: none; box-shadow: 0 10px 15px rgba(0,0,0,.1); }
+            nav ul.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrap">
+            <a href="#" class="logo">Công Ty TNHH <br><span>Cơ Điện Lạnh Ngọc Diệp</span></a>
+            <nav>
+                <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+                <ul id="navMenu">
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#services">Dịch vụ</a></li>
+                    <li><a href="#why-us">Ưu điểm</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>CÔNG TY TNHH CƠ ĐIỆN LẠNH NGỌC DIỆP</h1>
+            <p>🏠 Trụ sở: Xóm Xuân Trang, đường An Thuyên, Phường Vinh Phú, Thành phố Vinh, Tỉnh Nghệ An</p>
+            <p style="font-weight:500; color:#ffd; margin-bottom:1rem;">"Chất lượng tạo niềm tin — Dịch vụ xây dựng tương lai"</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-secondary">Nhận báo giá miễn phí</a>
+                <a href="tel:0966742123" class="btn btn-primary"><i class="fas fa-phone"></i> Gọi: 0966 742 123</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Về Chúng Tôi</h2>
+            <div class="about-grid">
+                <div>
+                    <h3 style="color:var(--primary); margin-bottom:1rem;">Đơn vị uy tín tại Nghệ An</h3>
+                    <p><strong>Công ty TNHH Cơ Điện Lạnh Ngọc Diệp</strong> thành lập ngày 02/04/2025, do ông Nguyễn Chí Công làm người đại diện pháp luật.</p>
+                    
+                    <div class="info-box">
+                        <p><strong>Mã số thuế:</strong> 2902220381</p>
+                        <p><strong>Ngày thành lập:</strong> 02/04/2025</p>
+                        <p><strong>Người đại diện:</strong> Nguyễn Chí Công</p>
+                        <p><strong>Trạng thái:</strong> Đang hoạt động</p>
+                    </div>
+                    
+                    <p>Chúng tôi chuyên cung cấp giải pháp toàn diện từ tư vấn, thiết kế, thi công đến bảo dưỡng hệ thống điện lạnh, điều hòa không khí, cấp thoát nước cho nhà ở, văn phòng, nhà xưởng, khách sạn trên toàn địa bàn Nghệ An.</p>
+                    
+                    <div class="values">
+                        <div class="value-item"><i class="fas fa-star"></i> Uy tín</div>
+                        <div class="value-item"><i class="fas fa-check-circle"></i> Chất lượng</div>
+                        <div class="value-item"><i class="fas fa-user-tie"></i> Chuyên nghiệp</div>
+                        <div class="value-item"><i class="fas fa-heart"></i> Trách nhiệm</div>
+                    </div>
+                </div>
+                <div>
+                    <h4>Sứ mệnh</h4>
+                    <p>Mang đến các giải pháp cơ điện lạnh hiện đại, tiết kiệm năng lượng, hiệu quả và an toàn — góp phần nâng cao chất lượng cuộc sống của khách hàng.</p>
+                    
+                    <h4 style="margin-top:1.5rem;">Tầm nhìn</h4>
+                    <p>Trở thành thương hiệu được tin chọn hàng đầu trong lĩnh vực cơ điện lạnh tại Nghệ An và các tỉnh miền Trung.</p>
+                    
+                    <h4 style="margin-top:1.5rem;">Ngành nghề chính</h4>
+                    <p>✅ Lắp đặt hệ thống cấp, thoát nước & điều hòa không khí</p>
+                    <p>✅ Sửa chữa, bảo trì máy lạnh & thiết bị cơ điện</p>
+                    <p>✅ Phân phối thiết bị điện lạnh chính hãng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Dịch Vụ Chính</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Điện lạnh & Điều hòa</h3>
+                    <p>Lắp đặt máy lạnh gia đình, văn phòng, hệ thống trung tâm; thiết kế & thi công kho lạnh bảo quản nông sản, thủy sản; hệ thống thông gió — tư vấn tiết kiệm điện.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Hệ thống điện & Cơ khí</h3>
+                    <p>Thiết kế & thi công hệ thống điện dân dụng, công nghiệp; tủ điều khiển, chiếu sáng; hệ thống cấp thoát nước, phòng cháy chữa cháy.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Bảo trì & Sửa chữa</h3>
+                    <p>Bảo dưỡng định kỳ; xử lý sự cố nhanh chóng; nâng cấp, cải tạo hệ thống cũ; cung cấp phụ kiện, linh kiện chính hãng.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Cung cấp thiết bị</h3>
+                    <p>Phân phối máy lạnh, thiết bị lạnh & điện các thương hiệu Daikin, Panasonic, Mitsubishi, LG… sản phẩm chính hãng, bảo hành đầy đủ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2 class="section-title">Tại sao chọn Ngọc Diệp?</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Tại địa phương</h4>
+                    <p>Trụ sở tại Phường Vinh Phú, phục vụ nhanh TP. Vinh & toàn Nghệ An</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h4>Chuyên môn</h4>
+                    <p>Đội ngũ kỹ sư, kỹ thuật viên có kinh nghiệm thực tế</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Chính hãng</h4>
+                    <p>Thiết bị rõ nguồn gốc, bảo hành đầy đủ</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h4>Minh bạch</h4>
+                    <p>Báo giá chi tiết, không chi phí ẩn</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Kịp thời</h4>
+                    <p>Tiến độ đúng cam kết, hỗ trợ tận nơi</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h4>Hậu mãi</h4>
+                    <p>Chăm sóc sau bán hàng, phản hồi nhanh 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Lĩnh Vực Phục Vụ</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-home"></i></div>
+                    <div class="project-body">
+                        <h4>Nhà ở & Gia đình</h4>
+                        <p>Lắp đặt điện lạnh, hệ thống điện & nước cho nhà ở, biệt thự</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-building"></i></div>
+                    <div class="project-body">
+                        <h4>Văn phòng & Công ty</h4>
+                        <p>Điều hòa trung tâm, hệ thống điện & thông gió</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-warehouse"></i></div>
+                    <div class="project-body">
+                        <h4>Nhà xưởng & Kho lạnh</h4>
+                        <p>Kho bảo quản nông sản, thủy sản; điện công nghiệp</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-hotel"></i></div>
+                    <div class="project-body">
+                        <h4>Khách sạn & Nhà hàng</h4>
+                        <p>Giải pháp điện lạnh toàn diện, tiết kiệm năng lượng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Liên Hệ</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Thông tin công ty</h3>
+                    
+                    <div>
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <strong>Công ty TNHH Cơ Điện Lạnh Ngọc Diệp</strong><br>
+                            MST: 2902220381
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Địa chỉ:</strong><br>
+                            Xóm Xuân Trang, đường An Thuyên<br>
+                            Phường Vinh Phú, Thành phố Vinh<br>
+                            Tỉnh Nghệ An
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Điện thoại:</strong><br>
+                            <a href="tel:0966742123" style="color:var(--primary); font-weight:500;">0966 742 123</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            nguyenchicong.jsc@gmail.com
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <i class="fab fa-facebook"></i>
+                        <div>
+                            <strong>Fanpage:</strong><br>
+                            <a href="https://facebook.com/thietkethicongdieuhoathonggio" target="_blank" style="color:var(--primary);">Thiết kế Thi công Điều hòa Thông gió</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Giờ làm việc:</strong><br>
+                            Thứ 2 – Thứ 7: 07:30 – 17:30<br>
+                            Hỗ trợ khẩn cấp: 24/7
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top:1.5rem; padding:1rem; background:#eef5ff; border-radius:8px;">📩 Điền thông tin bên dưới, chúng tôi sẽ liên hệ trong vòng 24 giờ!</p>
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Họ và tên *</label>
+                        <input type="text" name="name" required placeholder="Nhập họ và tên">
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại *</label>
+                        <input type="tel" name="phone" required placeholder="VD: 09xx xxx xxx">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa điểm công trình</label>
+                        <input type="text" name="location" placeholder="VD: Phường ..., TP. Vinh, Nghệ An">
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung yêu cầu</label>
+                        <textarea name="message" placeholder="Mô tả yêu cầu: lắp đặt máy lạnh, bảo trì, thiết kế hệ thống..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary" style="width:100%; font-size:1.1rem;">
+                        <i class="fas fa-paper-plane"></i> Gửi yêu cầu báo giá
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="text-align:center;">
+                <h3 style="margin-bottom:.5rem;">Công ty TNHH Cơ Điện Lạnh Ngọc Diệp</h3>
+                <p>Xóm Xuân Trang, đường An Thuyên, Phường Vinh Phú, TP. Vinh, Nghệ An</p>
+                <p style="margin-top:0.5rem; font-size:0.9rem; opacity:0.8;">MST: 2902220381 | Hotline: 0966 742 123</p>
+                <div class="footer-links">
+                    <a href="tel:0966742123"><i class="fas fa-phone"></i> Gọi ngay</a> |
+                    <a href="https://facebook.com/thietkethicongdieuhoathonggio" target="_blank"><i class="fab fa-facebook"></i> Fanpage</a> |
+                    <a href="mailto:nguyenchicong.jsc@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Công ty TNHH Cơ Điện Lạnh Ngọc Diệp. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', e => {
+            e.preventDefault();
+            alert('✅ Cảm ơn bạn! Chúng tôi sẽ gọi lại trong vòng 24 giờ.\n— Công ty TNHH Cơ Điện Lạnh Ngọc Diệp');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
